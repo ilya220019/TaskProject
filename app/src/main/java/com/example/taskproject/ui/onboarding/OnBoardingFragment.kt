@@ -7,17 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.taskproject.R
 import com.example.taskproject.databinding.FragmentOnBoardingBinding
+import com.example.taskproject.ui.onboarding.adapter.OnBoardingAdapter
 
 
 class OnBoardingFragment : Fragment() {
   private lateinit var binding: FragmentOnBoardingBinding
-
+    private val adapter = OnBoardingAdapter()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOnBoardingBinding.inflate(inflater,container,false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.viewpager.adapter = adapter
     }
 
 }
