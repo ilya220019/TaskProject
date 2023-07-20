@@ -18,6 +18,6 @@
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_insert_emoticon_24"
-        android:title="@string/profile" />
+        android:title="@string/title_profile" />
 
 </menu>

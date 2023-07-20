@@ -20,7 +20,6 @@ class TaskAdapter:RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     override fun getItemCount(): Int {
         return list.size
     }
-
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(list[position])
     }
