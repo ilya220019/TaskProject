@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.taskproject.R
 import com.example.taskproject.databinding.FragmentOnBoardingBinding
 import com.example.taskproject.ui.onboarding.adapter.OnBoardingAdapter
@@ -12,7 +13,7 @@ import com.example.taskproject.ui.onboarding.adapter.OnBoardingAdapter
 
 class OnBoardingFragment : Fragment() {
   private lateinit var binding: FragmentOnBoardingBinding
-    private val adapter = OnBoardingAdapter()
+    private val adapter = OnBoardingAdapter(this::onClick)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +25,10 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewpager.adapter = adapter
+        binding.dotsIndicator.attachTo(binding.viewpager)
+    }
+    private fun onClick(){
+        findNavController().navigate(R.id.navigation_home)
     }
 
 }
