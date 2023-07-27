@@ -41,5 +41,4 @@ class OnBoardingAdapter(private val onClick: ()-> Unit) :Adapter<OnBoardingAdapt
             }
         }
     }
-
 }
