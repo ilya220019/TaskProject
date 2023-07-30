@@ -1,4 +1,4 @@
-package com.example.taskproject.ui.Task.Adapter
+package com.example.taskproject.ui.task.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.taskproject.Model.Task
 import com.example.taskproject.databinding.ItemTaskBinding
 
-class TaskAdapter(val longClickItem: (task: Task) -> Unit) :
+class TaskAdapter(val longClickItem: (task: Task)-> Unit, val onClick:(task: Task) -> Unit) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     private val list = arrayListOf<Task>()
     fun addTask(task: Task) {
@@ -47,6 +47,9 @@ class TaskAdapter(val longClickItem: (task: Task) -> Unit) :
             itemView.setOnLongClickListener {
                 longClickItem(task)
                 true
+            }
+            binding.root.setOnClickListener {
+                onClick(task)
             }
         }
     }

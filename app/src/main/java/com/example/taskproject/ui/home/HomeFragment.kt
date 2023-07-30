@@ -5,21 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.example.taskproject.App
 import com.example.taskproject.Model.Task
 import com.example.taskproject.R
 import com.example.taskproject.databinding.FragmentHomeBinding
-import com.example.taskproject.ui.Task.Adapter.TaskAdapter
-import com.example.taskproject.ui.Task.TaskFragment.Companion.RESULT_KEY
-import com.example.taskproject.ui.Task.TaskFragment.Companion.RESULT_REQUES_KEY
+import com.example.taskproject.ui.task.Adapter.TaskAdapter
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private val adapter = TaskAdapter(this::onClickItem)
+    private val adapter = TaskAdapter(this::onClickItem, this::onClick)
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -60,5 +58,11 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    private fun onClick(task: Task){
+        findNavController().navigate(R.id.taskFragment, bundleOf(TASK_KEY to task))
+    }
+    companion object{
+        const val TASK_KEY = "task.key"
     }
 }

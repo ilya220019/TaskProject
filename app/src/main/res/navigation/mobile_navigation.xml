@@ -24,12 +24,12 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/taskFragment"
-        android:name="com.example.taskproject.ui.Task.TaskFragment"
+        android:name="com.example.taskproject.ui.task.TaskFragment"
         android:label="Task"
         tools:layout="@layout/fragment_task" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.taskproject.ui.Profile.ProfileFragment"
+        android:name="com.example.taskproject.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment

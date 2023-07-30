@@ -1,4 +1,4 @@
-package com.example.taskproject.ui.Profile
+package com.example.taskproject.ui.profile
 
 import android.app.Activity
 import android.content.Intent
