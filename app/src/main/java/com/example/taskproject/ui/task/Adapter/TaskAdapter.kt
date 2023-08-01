@@ -1,5 +1,6 @@
 package com.example.taskproject.ui.task.Adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +43,7 @@ class TaskAdapter(val longClickItem: (task: Task)-> Unit, val onClick:(task: Tas
     inner class TaskViewHolder(private val binding: ItemTaskBinding) :
         ViewHolder(binding.root) {
         fun bind(task: Task) {
+            binding.changeColor()
             binding.tvTitle.text = task.title
             binding.tvDesc.text = task.desc
             itemView.setOnLongClickListener {
@@ -52,6 +54,20 @@ class TaskAdapter(val longClickItem: (task: Task)-> Unit, val onClick:(task: Tas
                 onClick(task)
             }
         }
+
+        private fun ItemTaskBinding.changeColor() {
+
+            if (adapterPosition % 2 == 0){
+                itemCon.setBackgroundColor(Color.BLACK)
+                tvTitle.setTextColor(Color.WHITE)
+                tvDesc.setTextColor(Color.WHITE)
+            } else {
+                itemCon.setBackgroundColor(Color.WHITE)
+                tvTitle.setTextColor(Color.BLACK)
+                tvDesc.setTextColor(Color.BLACK)
+            }        }
+
     }
+
 
 }

@@ -32,13 +32,16 @@ class TaskFragment : Fragment() {
             btnSave.setText(getString(R.string.update))
         }
         btnSave.setOnClickListener {
+            if (etTitle.getText().toString() == "") {
+                etTitle.setError("This field can not be blank")
+            } else{
            if (task==null){
                save()
            }else{
                update()
            }
             findNavController().navigateUp()
-        }
+        }}
     }
     private fun update()= with(binding){
        val data = task?.copy(
@@ -51,8 +54,8 @@ class TaskFragment : Fragment() {
     }
     private fun save()= with(binding){
         val data = Task(
-            title = etTitle.text.toString(),
-            desc  = etDesc.text.toString())
+                title = etTitle.text.toString(),
+                desc  = etDesc.text.toString())
             App.db.taskDao().insert(data)
 
     }
