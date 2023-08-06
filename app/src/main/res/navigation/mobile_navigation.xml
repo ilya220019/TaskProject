@@ -37,4 +37,19 @@
         android:name="com.example.taskproject.ui.onboarding.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="com.example.taskproject.ui.auth.verify.VerifyFragment"
+        android:label="fragment_verify"
+        tools:layout="@layout/fragment_verify" />
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.taskproject.ui.auth.phone.PhoneFragment"
+        android:label="fragment_phone"
+        tools:layout="@layout/fragment_phone" />
+    <fragment
+        android:id="@+id/googleVerifyFragment"
+        android:name="com.example.taskproject.ui.auth.google.GoogleVerifyFragment"
+        android:label="fragment_google_verify"
+        tools:layout="@layout/fragment_google_verify" />
 </navigation>

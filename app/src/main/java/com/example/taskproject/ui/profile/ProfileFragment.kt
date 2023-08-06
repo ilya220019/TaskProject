@@ -10,9 +10,12 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.taskproject.R
 import com.example.taskproject.data.local.Pref
 import com.example.taskproject.databinding.FragmentProfileBinding
 import com.example.taskproject.utils.loadImage
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
 
@@ -41,7 +44,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         saveName()
-
+        binding.tvExit.setOnClickListener {
+            findNavController().navigate(R.id.googleVerifyFragment)
+            FirebaseAuth.getInstance().signOut()
+        }
         binding.profileImage.loadImage(pref.getImg())
         binding.profileImage.setOnClickListener {
             val intent = Intent()

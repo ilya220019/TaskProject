@@ -32,7 +32,7 @@ class TaskFragment : Fragment() {
             btnSave.setText(getString(R.string.update))
         }
         btnSave.setOnClickListener {
-            if (etTitle.getText().toString() == "") {
+            if (etTitle.text.isNullOrEmpty()) {
                 etTitle.setError("This field can not be blank")
             } else{
            if (task==null){
