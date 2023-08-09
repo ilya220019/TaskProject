@@ -1,6 +1,7 @@
 package com.example.taskproject
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -11,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.taskproject.data.local.Pref
 import com.example.taskproject.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        FirebaseMessaging.getInstance().token.addOnSuccessListener {
+            Log.e("ololo", "token" + it )
+        }
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
